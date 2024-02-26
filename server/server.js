@@ -4,7 +4,6 @@ import url from "url";
 import path from "path";
 import mongoose from "mongoose";
 import morgan from "morgan";
-import cookieParser from "cookie-parser";
 import cors from "cors";
 import helmet from "helmet";
 import ExpressMongoSanitize from "express-mongo-sanitize";
@@ -13,6 +12,7 @@ import { dirname } from "path";
 import * as dotenv from "dotenv";
 
 import silentPrayerRouter from "./routers/silentPrayerRouter.js";
+import errorMiddleware from "./middleware/errorMiddleware.js";
 
 // ==============================================
 // Initialization
@@ -30,7 +30,6 @@ const __dirname = dirname(url.fileURLToPath(import.meta.url));
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
-app.use(cookieParser());
 app.use(cors());
 app.use(helmet());
 app.use(ExpressMongoSanitize());
@@ -53,7 +52,7 @@ app.use("*", (req, res) => {
   res.status(StatusCodes.NOT_FOUND).json({ msg: "(Server message) Route not found" });
 });
 
-// app.use(errorMiddleware);
+app.use(errorMiddleware);
 
 // ==============================================
 // Server initialization
