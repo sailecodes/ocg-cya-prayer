@@ -24,7 +24,7 @@ const LayoutWrapper = styled.main`
 
     font-size: 2.8rem;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: -0.5px;
     text-align: center;
   }
 
