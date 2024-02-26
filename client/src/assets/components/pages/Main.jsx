@@ -11,7 +11,7 @@ const MainWrapper = styled.section`
   .main--tag {
     color: var(--color-primary);
 
-    font-size: var(--font-text-5);
+    font-size: 2.2rem;
     text-align: center;
 
     margin-bottom: 2rem;
@@ -51,6 +51,19 @@ const MainWrapper = styled.section`
     width: 28rem;
 
     font-size: 1.8rem;
+  }
+
+  @media (min-width: 769px) {
+    .main--tag {
+      font-size: 2.4rem;
+    }
+
+    form > input,
+    form > button {
+      height: 4.2rem;
+
+      font-size: 2rem;
+    }
   }
 `;
 

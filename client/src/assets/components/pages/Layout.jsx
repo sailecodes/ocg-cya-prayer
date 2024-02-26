@@ -31,6 +31,12 @@ const LayoutWrapper = styled.main`
   .layout--footer {
     height: 16rem;
   }
+
+  @media (min-width: 769px) {
+    .layout--header > p {
+      font-size: 3.4rem;
+    }
+  }
 `;
 
 const Layout = () => {
