@@ -1,3 +1,9 @@
+import ClipLoader from "react-spinners/ClipLoader";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+
+import axiosFetch from "../../utilities/axiosFetch.js";
+
 import styled from "styled-components";
 
 const MainWrapper = styled.section`
@@ -68,6 +74,31 @@ const MainWrapper = styled.section`
 `;
 
 const Main = () => {
+  const [silentPrayerInput, setSilentPrayerInput] = useState("");
+
+  const { mutate, isPending, isError } = useMutation({
+    mutationFn: (data) => {
+      return axiosFetch.post("/silent-prayer", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    },
+
+    onSuccess: () => {
+      setSilentPrayerInput("");
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    mutate(data);
+  };
+
   return (
     <MainWrapper>
       <div className="main--center-container">
@@ -75,9 +106,24 @@ const Main = () => {
           If you have any silent requests, please let us know below! <br />
           <span>We want to keep you in our prayers.</span>
         </p>
-        <form>
-          <input type="text" />
-          <button type="submit">Submit</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="silentPrayer"
+            value={silentPrayerInput}
+            onChange={(e) => setSilentPrayerInput(e.target.value)}
+            placeholder="Enter anonymously..."
+          />
+          <button type="submit">
+            {isPending ? (
+              <ClipLoader
+                size={12}
+                color={"var(--color-white)"}
+              />
+            ) : (
+              "Submit"
+            )}
+          </button>
         </form>
       </div>
     </MainWrapper>
