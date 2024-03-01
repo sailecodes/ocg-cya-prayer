@@ -5,8 +5,7 @@
 :root {
   /* APPLICATION SPECIFIC */
 
-  --color-primary: #123026;
-  --color-primary: #1c4b3b;
+  --color-primary: #53a58a;
 
   --color-text: var(--color-black);
   --color-border: rgb(230, 230, 230);
@@ -56,7 +55,7 @@ html {
 }
 
 body {
-  background-color: var(--color-white);
+  background-color: var(--color-black);
 
   font-family: "Poppins", sans-serif;
 }

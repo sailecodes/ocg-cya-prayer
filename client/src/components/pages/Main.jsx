@@ -3,27 +3,81 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 
 import axiosFetch from "../../utilities/axiosFetch.js";
+import bnw from "../../assets/imgs/bnw.png";
 
 import styled from "styled-components";
 
 const MainWrapper = styled.section`
-  display: grid;
-  place-items: center;
+  .main--hero {
+    position: relative;
 
-  height: 100%;
+    display: grid;
+    place-items: center;
 
-  padding: 4rem 2rem;
+    height: 45rem;
 
-  .main--tag {
+    padding: 4rem 2rem;
+    margin-bottom: 12rem;
+  }
+
+  .main--hero:before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    background-image: url(${bnw});
+    background-size: cover;
+
+    height: 45rem;
+    width: 100%;
+
+    opacity: 30%;
+  }
+
+  .main--hero p {
+    color: var(--color-white);
+
+    font-size: 3.2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .main--hero span {
     color: var(--color-primary);
+  }
 
-    font-size: 2.2rem;
+  .main--daily-verse {
+    color: var(--color-white);
+
+    font-size: 1.8rem;
+    font-style: italic;
+    text-align: center;
+
+    padding: 0 2rem;
+    margin-bottom: 12rem;
+  }
+
+  .main--daily-verse span {
+    display: inline-block;
+
+    margin-top: 1rem;
+  }
+
+  .main--prayer-request {
+    padding: 0 2rem;
+  }
+
+  .main--prayer-request-tag {
+    color: var(--color-white);
+
+    font-size: 2rem;
     text-align: center;
 
     margin-bottom: 2rem;
   }
 
-  .main--tag span {
+  .main--prayer-request-tag span {
     display: inline-block;
 
     margin-top: 1rem;
@@ -33,6 +87,8 @@ const MainWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-bottom: 10rem;
   }
 
   form > input {
@@ -44,7 +100,7 @@ const MainWrapper = styled.section`
     font-size: 1.8rem;
 
     padding: 0 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border: 1px solid var(--color-border);
   }
 
@@ -59,7 +115,68 @@ const MainWrapper = styled.section`
     font-size: 1.8rem;
   }
 
+  .main--join {
+    display: grid;
+    place-items: center;
+
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    height: 20rem;
+
+    font-size: 2.4rem;
+    text-align: center;
+
+    padding: 2rem;
+    margin-bottom: 10rem;
+  }
+
+  .main--join span {
+    text-decoration: underline;
+  }
+
+  .main--stats-count {
+    color: var(--color-white);
+
+    font-size: 2rem;
+    text-align: center;
+
+    padding: 0 2rem;
+    margin-bottom: 10rem;
+  }
+
+  .main--stats-count span {
+    display: inline-block;
+
+    color: var(--color-primary);
+
+    font-size: 4rem;
+    margin: 1rem 0;
+  }
+
+  .main--footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    color: var(--color-white);
+
+    height: 16rem;
+
+    font-size: 1.8rem;
+  }
+
+  .main--footer a {
+    color: var(--color-white);
+
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
+
   @media (min-width: 769px) {
+    .main--goal,
     .main--tag {
       font-size: 2.4rem;
     }
@@ -101,9 +218,21 @@ const Main = () => {
 
   return (
     <MainWrapper>
-      <div className="main--center-container">
-        <p className="main--tag">
-          If you have any silent requests, please let us know below! <br />
+      <div className="main--hero">
+        <p>
+          Our goal is to create a <span>safe space</span> for you to share your prayer requests.
+        </p>
+      </div>
+      <p className="main--daily-verse">
+        &quot;If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all
+        unrighteousness.&quot;
+        <br />
+        <span>1 John 1:9 NIV</span>
+      </p>
+      <div className="main--prayer-request">
+        <p className="main--prayer-request-tag">
+          If you have any silent requests, please let us know below!
+          <br />
           <span>We want to keep you in our prayers.</span>
         </p>
         <form onSubmit={handleSubmit}>
@@ -126,6 +255,27 @@ const Main = () => {
           </button>
         </form>
       </div>
+      <div className="main--join">
+        <p className="main--join-tag">
+          Interested in joining our prayer community? Contact us at <span>ocgcya@ocg.com</span>
+        </p>
+      </div>
+      <p className="main--stats-count">
+        Our community has prayed for
+        <br />
+        <span>6 prayer requests</span>
+        <br />
+        and counting!
+      </p>
+      <footer className="main--footer">
+        Check us out
+        <a
+          href="https://ocgrace.churchcenter.com/home"
+          target="_blank"
+          rel="noopener noreferrer">
+          OCGrace
+        </a>
+      </footer>
     </MainWrapper>
   );
 };
