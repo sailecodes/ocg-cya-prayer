@@ -17,7 +17,7 @@ const MainWrapper = styled.section`
     height: 45rem;
 
     padding: 4rem 2rem;
-    margin-bottom: 12rem;
+    margin-bottom: 16rem;
   }
 
   .main--hero:before {
@@ -55,7 +55,7 @@ const MainWrapper = styled.section`
     text-align: center;
 
     padding: 0 2rem;
-    margin-bottom: 12rem;
+    margin-bottom: 16rem;
   }
 
   .main--daily-verse span {
@@ -66,6 +66,7 @@ const MainWrapper = styled.section`
 
   .main--prayer-request {
     padding: 0 2rem;
+    margin-bottom: 16rem;
   }
 
   .main--prayer-request-tag {
@@ -83,15 +84,13 @@ const MainWrapper = styled.section`
     margin-top: 1rem;
   }
 
-  form {
+  .main--prayer-request form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    margin-bottom: 10rem;
   }
 
-  form > input {
+  .main--prayer-request form > input {
     color: var(--color-primary);
 
     width: 28rem;
@@ -104,7 +103,7 @@ const MainWrapper = styled.section`
     border: 1px solid var(--color-border);
   }
 
-  form > button {
+  .main--prayer-request form > button {
     color: var(--color-white);
     background-color: var(--color-primary);
 
@@ -128,7 +127,7 @@ const MainWrapper = styled.section`
     text-align: center;
 
     padding: 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 16rem;
   }
 
   .main--join span {
@@ -142,7 +141,7 @@ const MainWrapper = styled.section`
     text-align: center;
 
     padding: 0 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 16rem;
   }
 
   .main--stats-count span {
@@ -158,12 +157,11 @@ const MainWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
 
     color: var(--color-white);
 
-    height: 16rem;
+    height: 12rem;
 
     font-size: 1.8rem;
   }
@@ -176,16 +174,64 @@ const MainWrapper = styled.section`
   }
 
   @media (min-width: 769px) {
-    .main--goal,
-    .main--tag {
-      font-size: 2.4rem;
+    .main--hero p {
+      font-size: 3.4rem;
     }
 
-    form > input,
-    form > button {
+    .main--daily-verse {
+      font-size: 2rem;
+    }
+
+    .main--prayer-request-tag {
+      font-size: 2.2rem;
+    }
+
+    .main--prayer-request form > input {
+      width: 46rem;
       height: 4.2rem;
 
       font-size: 2rem;
+    }
+
+    .main--prayer-request form > button {
+      width: 46rem;
+      height: 4.2rem;
+
+      font-size: 2rem;
+    }
+
+    .main--join {
+      height: 22rem;
+
+      font-size: 2.6rem;
+    }
+
+    .main--stats-count {
+      font-size: 2.2rem;
+    }
+
+    .main--stats-count span {
+      font-size: 4.2rem;
+    }
+
+    .main--footer {
+      height: 12rem;
+
+      font-size: 2rem;
+    }
+
+    .main--footer a {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .main--hero,
+    .main--daily-verse,
+    .main--prayer-request,
+    .main--join,
+    .main--stats-count {
+      margin-bottom: 20rem;
     }
   }
 `;
