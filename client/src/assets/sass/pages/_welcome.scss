@@ -1,0 +1,77 @@
+@use "../base/variables" as vars;
+
+.welcome--hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100vh;
+
+  padding: 2rem;
+}
+
+.welcome--hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+}
+
+.welcome--hero-text > p {
+  color: vars.$color-white;
+
+  font-size: 4.2rem;
+
+  text-align: center;
+}
+
+.welcome--hero-text > p > span {
+  color: #9dbc98;
+}
+
+.welcome--hero-text > p > span > span {
+  color: vars.$color-white;
+}
+
+.welcome--hero > div:last-child > a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  color: vars.$color-white;
+
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+}
+
+.welcome--hero > div:last-child > a > div {
+  display: grid;
+  place-items: center;
+}
+
+@media (min-width: 426px) {
+  .welcome--hero {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .welcome--hero-text > p {
+    font-size: 5.6rem;
+  }
+
+  .welcome--hero > div:last-child > a {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1441px) {
+  .welcome--hero-text > p {
+    font-size: 7.2rem;
+  }
+
+  .welcome--hero > div:last-child > a {
+    font-size: 1.8rem;
+  }
+}

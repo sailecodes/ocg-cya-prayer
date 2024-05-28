@@ -1,0 +1,84 @@
+@use "variables" as vars;
+
+// ==============================================
+// ===== DEFAULT STYLINGS
+// ==============================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: vars.$color-black;
+  // overflow: hidden;
+}
+
+// ==============================================
+// ===== INPUTS
+// ==============================================
+
+input {
+  font-family: inherit;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+select {
+  font-family: inherit;
+}
+
+// ==============================================
+// ===== LINKS
+// ==============================================
+
+a {
+  font-family: inherit;
+  text-decoration: none;
+}
+
+// ==============================================
+// ===== BUTTONS
+// ==============================================
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+}
+
+::file-selector-button {
+  font-family: inherit;
+  border: none;
+}
+
+button:hover,
+::file-selector-button:hover {
+  cursor: pointer;
+}
+
+// ==============================================
+// ===== SCROLL STYLINGS
+// ==============================================
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+  // ...
+}
+
+::-webkit-scrollbar-thumb {
+  background: vars.$color-white;
+}

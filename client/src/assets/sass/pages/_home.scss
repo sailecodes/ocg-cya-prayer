@@ -1,0 +1,95 @@
+@use "../base/variables" as vars;
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  height: 100vh;
+
+  padding: 4rem;
+}
+
+.home > section {
+  position: relative;
+  z-index: 51;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 7.2rem;
+}
+
+.home > section > div {
+  color: vars.$color-white;
+
+  line-height: 100px;
+}
+
+.home > section > div > span {
+  color: vars.$color-green;
+
+  font-size: 10rem;
+}
+
+.home > form {
+  position: relative;
+  z-index: 51;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.home > form > input {
+  background: none;
+  color: vars.$color-white;
+
+  font-size: 4.2rem;
+
+  max-width: 75rem;
+  width: 75rem;
+
+  border-bottom: 1px solid vars.$color-green;
+}
+
+.home > form > button {
+  color: vars.$color-white;
+
+  font-size: 2.2rem;
+
+  padding: 1rem 2rem;
+
+  background: linear-gradient(to left, #001524 50%, #9dbc98 50%) right;
+  background-size: 200% 100%;
+  border: 1px solid #9dbc98;
+
+  transition: 0.3s linear;
+}
+
+.home > form > button:hover {
+  background-position: left;
+}
+
+.home > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+
+  padding: 4rem;
+
+  overflow: hidden;
+}
+
+.home > div > p {
+  position: absolute;
+
+  width: fit-content;
+
+  color: vars.$color-gray;
+
+  font-size: 1.8rem;
+}
